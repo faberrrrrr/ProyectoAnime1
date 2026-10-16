@@ -2,20 +2,14 @@ package com.example.proyectoanime;
 
 public class Personaje {
 
-    private String imagen;
     private String nombre;
     private String anime;
-    private String descripcion;
+    private int imagen;
 
-    public Personaje(String imagen, String nombre, String anime, String descripcion) {
-        this.imagen = imagen;
+    public Personaje(String nombre, String anime, int imagen) {
         this.nombre = nombre;
         this.anime = anime;
-        this.descripcion = descripcion;
-    }
-
-    public String getImagen() {
-        return imagen;
+        this.imagen = imagen;
     }
 
     public String getNombre() {
@@ -26,7 +20,7 @@ public class Personaje {
         return anime;
     }
 
-    public String getDescripcion() {
-        return descripcion;
+    public int getImagen() {
+        return imagen;
     }
 }

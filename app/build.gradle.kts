@@ -40,5 +40,4 @@ dependencies {
     androidTestImplementation(libs.espresso.core)
     androidTestImplementation(libs.ext.junit)
     implementation("androidx.recyclerview:recyclerview:1.3.2")
-    implementation("com.squareup.picasso:picasso:2.8")
 }

@@ -6,21 +6,12 @@
     android:background="#F2F0FA"
     android:padding="16dp">
 
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="ANIMEVERSE"
-        android:textColor="#24164D"
-        android:textSize="30sp"
-        android:textStyle="bold"
-        android:letterSpacing="0.08"
-        android:gravity="center"
-        android:layout_marginTop="12dp" />
+
 
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Tu catálogo de personajes favoritos"
+        android:text="Escogí anime, estos son mis 6 personajes:"
         android:textColor="#7652D5"
         android:textSize="15sp"
         android:gravity="center"

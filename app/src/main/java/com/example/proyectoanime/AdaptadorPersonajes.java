@@ -5,42 +5,41 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
-import com.squareup.picasso.Picasso;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
-import java.util.ArrayList;
+import java.util.List;
 
-public class AdaptadorPersonajes extends RecyclerView.Adapter<AdaptadorPersonajes.PersonajeViewHolder> {
+public class AdaptadorPersonajes
+        extends RecyclerView.Adapter<AdaptadorPersonajes.ViewHolder> {
 
-    private ArrayList<Personaje> listaPersonajes;
+    private List<Personaje> listaPersonajes;
 
-    public AdaptadorPersonajes(ArrayList<Personaje> listaPersonajes) {
+    public AdaptadorPersonajes(List<Personaje> listaPersonajes) {
         this.listaPersonajes = listaPersonajes;
     }
 
     @NonNull
     @Override
-    public PersonajeViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+    public ViewHolder onCreateViewHolder(
+            @NonNull ViewGroup parent, int viewType) {
+
         View vista = LayoutInflater.from(parent.getContext())
                 .inflate(R.layout.item_personaje, parent, false);
 
-        return new PersonajeViewHolder(vista);
+        return new ViewHolder(vista);
     }
 
     @Override
-    public void onBindViewHolder(@NonNull PersonajeViewHolder holder, int position) {
+    public void onBindViewHolder(
+            @NonNull ViewHolder holder, int position) {
+
         Personaje personaje = listaPersonajes.get(position);
 
         holder.txtNombre.setText(personaje.getNombre());
         holder.txtAnime.setText(personaje.getAnime());
-        holder.txtDescripcion.setText(personaje.getDescripcion());
-        Picasso.get()
-                .load(personaje.getImagen())
-                .placeholder(R.drawable.naruto)
-                .error(R.drawable.naruto)
-                .into(holder.imgPersonaje);
+        holder.imgPersonaje.setImageResource(personaje.getImagen());
     }
 
     @Override
@@ -48,18 +47,18 @@ public class AdaptadorPersonajes extends RecyclerView.Adapter<AdaptadorPersonaje
         return listaPersonajes.size();
     }
 
-    public static class PersonajeViewHolder extends RecyclerView.ViewHolder {
+    public static class ViewHolder extends RecyclerView.ViewHolder {
 
         ImageView imgPersonaje;
-        TextView txtNombre, txtAnime, txtDescripcion;
+        TextView txtNombre;
+        TextView txtAnime;
 
-        public PersonajeViewHolder(@NonNull View itemView) {
+        public ViewHolder(@NonNull View itemView) {
             super(itemView);
 
             imgPersonaje = itemView.findViewById(R.id.imgPersonaje);
             txtNombre = itemView.findViewById(R.id.txtNombre);
             txtAnime = itemView.findViewById(R.id.txtAnime);
-            txtDescripcion = itemView.findViewById(R.id.txtDescripcion);
         }
     }
 }
